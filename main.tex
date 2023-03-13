@@ -1,0 +1,138 @@
+\documentclass[chapterprefix=false, 11pt]{scrreprt}
+
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{subfiles}
+\usepackage{blindtext}
+\usepackage[ngerman]{babel}
+\usepackage{helvet}
+\usepackage{scrlayer-scrpage}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\graphicspath{ {./images/} }
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+
+\lstdefinestyle{codestyle}{
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\scriptsize\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    xleftmargin=2em
+}
+\lstset{style=codestyle}
+
+\renewcommand{\normalfont}{\sffamily}
+
+\pagestyle{scrheadings}
+\setkomafont{pagehead}{\scriptsize\upshape}
+\setkomafont{pagefoot}{\scriptsize\upshape}
+\setkomafont{pagenumber}{\scriptsize\upshape}
+\clearpairofpagestyles
+\ihead*{Titel -- \headmark}
+\automark{chapter}
+\ofoot*{Seite \pagemark}
+\ifoot*{Mustermann, Musterfrau}
+
+\setkomafont{chapter}{\LARGE}
+
+\title{Titel}
+\author{Mustermann, Musterfrau}
+\date{28.09.2021}
+
+\sisetup{output-decimal-marker = {,}}
+
+\begin{document}
+
+\sffamily
+
+\begin{titlepage}
+    
+    \begin{flushright}
+        \includegraphics[height=1.5cm]{Ostfalia Logo.jpg}
+    \end{flushright}
+    
+    \vspace{2cm}
+
+    \begin{centering}
+        
+        {\large Fakultät Fahrzeugtechnik\par}
+	    
+        \vspace{1.5cm}
+	    
+        {\huge\bfseries Titel\par}
+        
+        \vspace{1cm}
+        
+        {\Large\bfseries Untertitel\par}
+
+    \end{centering}
+    
+    \vfill
+    
+    \begin{tabular}{ p{4cm} p{10cm} }
+        
+        vorgelegt von:  & Max Mustermann          \\
+                        & Matrikel-Nr. 12345678   \\[0.25cm]
+                        & Max Mustermann          \\
+                        & Matrikel-Nr. 12345678   \\[0.5cm]
+        Prüferin:       & Prof. Dr. M. Mustermann \\[0.5cm]
+        Abgabetermin:   & 10. Juni 2022           \\
+    
+    \end{tabular}
+
+\end{titlepage}
+
+{
+    \pagenumbering{Roman}
+
+    \tableofcontents
+        
+    \addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
+        
+    \pagebreak
+}
+
+{
+    \listoffigures
+        
+    \addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+        
+    \pagebreak
+}
+
+\pagenumbering{arabic}
+
+\input{Kapitel1}
+\input{Kapitel2}
+
+
+{
+    \appendix
+    \chapter{Anhang}
+    \input{Anhang}
+    
+}
+
+\end{document}
